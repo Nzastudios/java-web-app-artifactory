@@ -1,6 +1,9 @@
 pipeline {
   // agent { label 'linux' }
   agent any
+  tools {
+    maven 'maven3'
+  }
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
@@ -11,7 +14,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh './mvnw clean install'
+        sh 'mvn clean install'
       }
     }
     stage('Upload to Artifactory') {
