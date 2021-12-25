@@ -14,7 +14,7 @@ tools {
   stages {
     stage('Build') {
       steps {
-        sh script: 'mvnw clean install'
+        sh script: './mvnw clean install'
       }
     }
     stage('Upload to Artifactory') {
